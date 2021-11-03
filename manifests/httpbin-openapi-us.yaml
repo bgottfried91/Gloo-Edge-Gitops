@@ -3,7 +3,7 @@ kind: Upstream
 metadata:
   labels:
     discovered_by: kubernetesplugin
-  name: default-httpbin-8000
+  name: httpbin-httpbin-8000
   namespace: gloo-system
 spec:
   discoveryMetadata:
