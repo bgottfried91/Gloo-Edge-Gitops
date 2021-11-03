@@ -4,7 +4,7 @@ metadata:
   labels:
     discovered_by: kubernetesplugin
   name: {{ .Release.Namespace }}-{{ .Release.Name }}-{{ .Values.servicePort }}
-  namespace: httpbin
+  namespace: {{ .Release.Namespace }}
 spec:
   discoveryMetadata:
     labels:
