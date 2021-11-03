@@ -14,7 +14,7 @@ spec:
     selector:
       app: httpbin
     serviceName: httpbin
-    serviceNamespace: default
+    serviceNamespace: httpbin
     servicePort: 8000
     serviceSpec:
       rest:
