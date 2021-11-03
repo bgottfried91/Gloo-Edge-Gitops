@@ -1,0 +1,13 @@
+project: default
+source:
+  repoURL: 'https://github.com/bgottfried91/Gloo-Edge-Gitops.git'
+  path: httpbin-manifests
+  targetRevision: HEAD
+  directory:
+    jsonnet:
+      tlas:
+        - name: ''
+          value: ''
+destination:
+  server: 'https://kubernetes.default.svc'
+  namespace: httpbin

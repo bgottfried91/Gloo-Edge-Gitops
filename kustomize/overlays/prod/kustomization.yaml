@@ -1,0 +1,9 @@
+bases:
+- ../../base
+patchesJson6902:
+- target:
+    group: gateway.solo.io
+    version: v1
+    kind: VirtualService
+    name: default
+  path: exact-matcher-patch.yaml

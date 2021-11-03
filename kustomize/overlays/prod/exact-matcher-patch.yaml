@@ -1,0 +1,6 @@
+- op: remove
+  path: /spec/virtualHost/routes/0/matchers/0/prefix
+
+- op: add
+  path: /spec/virtualHost/routes/0/matchers/0/exact
+  value: /api/httpbin/get

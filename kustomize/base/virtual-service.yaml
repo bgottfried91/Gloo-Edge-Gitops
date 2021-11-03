@@ -1,0 +1,21 @@
+apiVersion: gateway.solo.io/v1
+kind: VirtualService
+metadata:
+  name: default
+spec:
+  virtualHost:
+    domains:
+    - '*'
+    routes:
+    - matchers:
+      - prefix: /api/httpbin
+      options:
+        regexRewrite: 
+          pattern:
+            regex: '/api/httpbin/'
+          substitution: '/'
+      routeAction:
+        single:
+          upstream:
+            name: httpbin-httpbin-8000
+            namespace: httpbin

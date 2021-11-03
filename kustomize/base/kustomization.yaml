@@ -1,0 +1,5 @@
+resources:
+- httpbin-svc-dpl.yaml
+- ns.yaml
+- upstream.yaml
+- virtual-service.yaml
