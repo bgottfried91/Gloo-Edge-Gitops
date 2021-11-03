@@ -1,0 +1,25 @@
+apiVersion: gateway.solo.io/v1
+kind: VirtualService
+metadata:
+  name: {{ .Release.Name }}
+  namespace: {{ .Release.Namespace }}
+spec:
+  virtualHost:
+    domains:
+    - '*'
+    routes:
+    - matchers:
+      - prefix: /api/httpbin
+      options:
+        {{ if .Values.timeout -}}
+        timeout: {{ .Values.timeout }}
+        {{ end -}}
+        regexRewrite: 
+          pattern:
+            regex: '/api/httpbin/'
+          substitution: '/'
+      routeAction:
+        single:
+          upstream:
+            name: {{ .Release.Namespace }}-{{ .Release.Name }}-{{ .Values.servicePort }}
+            namespace: {{ .Release.Namespace }}

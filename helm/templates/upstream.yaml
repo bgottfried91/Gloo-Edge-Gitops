@@ -1,0 +1,22 @@
+apiVersion: gloo.solo.io/v1
+kind: Upstream
+metadata:
+  labels:
+    discovered_by: kubernetesplugin
+  name: {{ .Release.Namespace }}-{{ .Release.Name }}-{{ .Values.servicePort }}
+  namespace: httpbin
+spec:
+  discoveryMetadata:
+    labels:
+      app: {{ .Release.Name }}
+      service: {{ .Release.Name }}
+  kube:
+    selector:
+      app: {{ .Release.Name }}
+    serviceName: {{ .Release.Name }}
+    serviceNamespace: {{ .Release.Namespace }}
+    servicePort: {{ .Values.servicePort }}
+    serviceSpec:
+      rest:
+        swaggerInfo:
+          url: https://raw.githubusercontent.com/solo-io/solo-blog/main/zero-to-gateway/httpbin-openapi.json

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  labels:
+    kubernetes.io/metadata.name: {{ .Release.Namespace }}
+    discovery.solo.io/function_discovery: enabled
+  name: {{ .Release.Namespace }}
+spec:
+  finalizers:
+  - kubernetes
+status:
+  phase: Active
