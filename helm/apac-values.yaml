@@ -1,2 +1,1 @@
-servicePort: 8000
-timeout: 8
+timeout: '8s'
