@@ -1,9 +1,15 @@
-project: default
-source:
-  repoURL: 'https://github.com/bgottfried91/Gloo-Edge-Gitops.git'
-  path: kustomize/overlays/prod
-  targetRevision: HEAD
-destination:
-  server: 'https://kubernetes.default.svc'
-  namespace: httpbin
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: httpbin-prod
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/bgottfried91/Gloo-Edge-Gitops.git'
+    path: kustomize/overlays/prod
+    targetRevision: HEAD
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: httpbin
 

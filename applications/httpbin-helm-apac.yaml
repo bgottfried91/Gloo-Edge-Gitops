@@ -1,12 +1,18 @@
-project: default
-source:
-  repoURL: 'https://github.com/bgottfried91/Gloo-Edge-Gitops.git'
-  path: helm
-  targetRevision: HEAD
-  helm:
-    valueFiles:
-      - apac-values.yaml
-destination:
-  server: 'https://kubernetes.default.svc'
-  namespace: httpbin-helm-apac
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: httpbin-helm-apac
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/bgottfried91/Gloo-Edge-Gitops.git'
+    path: helm
+    targetRevision: HEAD
+    helm:
+      valueFiles:
+        - apac-values.yaml
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: httpbin-helm-apac
 
