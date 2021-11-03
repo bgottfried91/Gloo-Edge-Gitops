@@ -1,0 +1,9 @@
+project: default
+source:
+  repoURL: 'https://github.com/bgottfried91/Gloo-Edge-Gitops.git'
+  path: kustomize/overlays/dev
+  targetRevision: HEAD
+destination:
+  server: 'https://kubernetes.default.svc'
+  namespace: httpbin
+
